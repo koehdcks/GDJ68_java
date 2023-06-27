@@ -15,6 +15,7 @@ public class Study3 {
 			break;
 		default:
 			System.out.println("num 모름");
+			
 		}
 	}
 }
