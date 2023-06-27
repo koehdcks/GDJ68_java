@@ -3,8 +3,10 @@ package com.iu.study2;
 public class Study {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		//master 브랜치에서 작성함
+		
+		
 	}
 
 }
