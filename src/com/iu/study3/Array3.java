@@ -1,4 +1,4 @@
-package com.iu.study2;
+package com.iu.study3;
 
 public class Array3 {
 
