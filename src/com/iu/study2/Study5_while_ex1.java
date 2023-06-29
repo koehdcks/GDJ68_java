@@ -54,25 +54,29 @@ public class Study5_while_ex1 {
 			System.out.println("1. 사냥시작 2. 종료");
 			int start=sc.nextInt();
 			if(start==1) {
-				for(int level=1;level<=15;level++) {
+				for(int level=1;level<15;level++) {
 					for(int monster=1;monster<=level*3;monster++) {
-						System.out.println("사냥성공");
+						System.out.println(monster+"마리 사냥성공");
 					}
-					switch(level) {
+					switch(level+1) {//5레벨당 골드 누적
 					case 5:
+						System.out.println("5랩 달성 축하합니다");
 						GOLD+=1000;
 						break;
 					case 10:
+						System.out.println("10랩 달성 축하합니다");
 						GOLD+=2000;
 						break;
 					case 15:
+						System.out.println("15랩 달성 축하합니다");
 						GOLD+=3000;
 					}
-					System.out.println("레벨업 했습니다. 현재레벨 "+level);
+					System.out.println("레벨업 했습니다. 현재레벨 "+(level+1));
+					//렙업시 게임을 계속할지 종료할지
 					System.out.println("1.계속하기 2.종료하기");
 					int number=sc.nextInt();
 					if(number==2) {
-						System.out.println("게임을 종료합니다. 현재레벨: "+ level + " 현재골드: " + GOLD);
+						System.out.println("게임을 종료합니다. 현재레벨: "+ (level+1) + " 현재골드: " + GOLD);
 						break;
 					}
 				}
