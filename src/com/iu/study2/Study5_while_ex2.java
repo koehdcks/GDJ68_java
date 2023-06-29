@@ -11,7 +11,6 @@ public class Study5_while_ex2 {
 		int hp=40;//유저의 HP
 		int monsterHp=60;//몬스터의 HP
 		int monsterPower=40;//몬스터의 공격력
-		boolean game=true;
 		
 		//유저정보
 		//1.평타 2.스킬 3.HP회복 4.도망
@@ -22,18 +21,19 @@ public class Study5_while_ex2 {
 		
 		//몬스터
 		//1 : 유저 공격 0~40의 공격을 유저에게
+		int skillCount=3;
 		while(hp>0 && monsterHp>0) {
 			int mattack= random.nextInt(monsterPower+1);
 			int uattack= random.nextInt(10);
 			int uskill= random.nextInt(30);
 			int uheal= random.nextInt(40+1);
 			int urun= random.nextInt(2);
-			System.out.println("시작합니다");
 			System.out.println("유저HP: " + hp + " 몬스터HP: " + monsterHp);
 			System.out.println("1.평타 2.스킬 3.HP회복 4.도망");
 			int select = sc.nextInt();
 			//유저턴
 			System.out.println("유저턴");
+			//평타
 			if(select==1) {
 				monsterHp=monsterHp-uattack;
 				System.out.println("몬스터가 "+uattack+"의 데미지를 입습니다.");
@@ -41,13 +41,20 @@ public class Study5_while_ex2 {
 					monsterHp=0;
 				}
 				System.out.println("몬스터의체력 " + monsterHp);
+				//스킬
 			}else if(select==2) {
-				monsterHp=monsterHp-uskill;
-				System.out.println("몬스터가 "+uskill+"의 데미지를 입습니다.");
-				if(monsterHp<0) {
-					monsterHp=0;
+				if(skillCount>0) {
+					skillCount--;
+					monsterHp=monsterHp-uskill;
+					System.out.println("몬스터가 "+uskill+"의 데미지를 입습니다.");
+					if(monsterHp<0) {
+						monsterHp=0;
+					}
+					System.out.println("몬스터의체력 " + monsterHp);
+				}else {
+					System.out.println("마나가 부족합니다");
 				}
-				System.out.println("몬스터의체력 " + monsterHp);
+				//회복
 			}else if(select==3) {
 				hp=hp+uheal;
 				System.out.println("유저가 "+uheal+"의 체력을 회복합니다");
@@ -55,6 +62,7 @@ public class Study5_while_ex2 {
 					hp=40;
 				}
 				System.out.println("유저의체력 " + hp);
+				//도망
 			}else {
 				if(urun==1) {
 					System.out.println("도망에 성공합니다");
@@ -79,7 +87,7 @@ public class Study5_while_ex2 {
 				System.out.println("몬스터가 죽었습니다.");
 			}
 			
-		}
+		}//while 끝
 	}
 
 	
